@@ -119,17 +119,53 @@ async function playRaceEngine(character1, character2) {
       );
 
       if (powerResult1 > powerResult2 && character2.PONTOS > 0) {
-        console.log(
-          `${character1.NOME} venceu o confronto! ${character2.NOME} perdeu 1 ponto 🐢`
-        );
-        character2.PONTOS--;
+
+        let fight = Math.floor(Math.random() * 2) + 1
+        if ( fight === 1){
+          console.log(
+            `${character1.NOME} venceu o confronto com um casco! ${character2.NOME} perdeu 1 ponto 🐢`
+          );
+          character2.PONTOS--;
+        }
+        if( fight === 2 && character2.PONTOS > 2 ){
+          console.log(
+            `${character1.NOME} venceu o confronto com uma bomba! ${character2.NOME} perdeu 2 pontos 💣`
+          );
+          character2.PONTOS -= 2;
+        }
+        
+      }
+      if ( powerResult1 > powerResult2){
+        let turbo = Math.floor(Math.random() * 2)
+        if ( turbo === 1 ){
+          console.log(`${character1.NOME} recebeu turbo por ganhar o confronto! + 1 ponto!!`)
+          character1.PONTOS ++;
+        }
       }
 
       if (powerResult2 > powerResult1 && character1.PONTOS > 0) {
-        console.log(
-          `${character2.NOME} venceu o confronto! ${character1.NOME} perdeu 1 ponto 🐢`
-        );
-        character1.PONTOS--;
+
+        let fight = Math.floor(Math.random() * 2) + 1
+        if( fight === 1){
+          console.log(
+            `${character2.NOME} venceu o confronto com um casco! ${character1.NOME} perdeu 1 ponto 🐢`
+          );
+          character1.PONTOS--;
+        }
+        if( fight === 2 && character1.PONTOS > 2){
+          console.log(
+            `${character2.NOME} venceu o confronto com uma bomba! ${character1.NOME} perdeu 2 pontos 💣`
+          );
+          character1.PONTOS -= 2;
+        }
+        
+      }
+      if ( powerResult2 > powerResult1){
+        let turbo = Math.floor(Math.random() * 2)
+        if ( turbo === 1 ){
+          console.log(`${character2.NOME} recebeu turbo por ganhar o confronto! + 1 ponto!!`)
+          character2.PONTOS ++;
+        }
       }
 
       console.log(
